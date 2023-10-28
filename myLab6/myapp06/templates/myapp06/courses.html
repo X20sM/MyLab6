@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses</title>
+  </head>
+  <body>
+    <h1>Courses</h1>
+    <form method="post">
+      {% csrf_token %} {{form.as_table}}
+      <button type="submit">Add Courses</button>
+    </form>
+    <ul>
+      {% for course in courses %}
+      <li>{{ course.name }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'students' %}">Go to Students</a>
+  </body>
+</html>
